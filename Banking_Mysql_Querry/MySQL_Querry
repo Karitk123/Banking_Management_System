@@ -1,0 +1,37 @@
+mysql> use banking_system;
+Database changed
+mysql> create table accounts(
+    -> account_number bigint primary key Not null,
+    -> full_name varchar(255) Not null,
+    -> email varchar(255) unique key Not null,
+    -> balance decimal(10,2) not null,
+    -> security_pin char(4) not null);
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> describe accounts;
++----------------+---------------+------+-----+---------+-------+
+| Field          | Type          | Null | Key | Default | Extra |
++----------------+---------------+------+-----+---------+-------+
+| account_number | bigint        | NO   | PRI | NULL    |       |
+| full_name      | varchar(255)  | NO   |     | NULL    |       |
+| email          | varchar(255)  | NO   | UNI | NULL    |       |
+| balance        | decimal(10,2) | NO   |     | NULL    |       |
+| security_pin   | char(4)       | NO   |     | NULL    |       |
++----------------+---------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> create table user(
+    -> full_name varchar(255) not null,
+    -> email varchar(255) primary key not null,
+    -> password varchar(255) not null);
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> describe user;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| full_name | varchar(255) | NO   |     | NULL    |       |
+| email     | varchar(255) | NO   | PRI | NULL    |       |
+| password  | varchar(255) | NO   |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
